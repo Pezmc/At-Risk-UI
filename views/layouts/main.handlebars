@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>{{title }}</title>
+  <link rel="stylesheet" href="/css/style.css">
+  {{#if ENV_DEVELOPMENT}}
+    <script src="http://localhost:35729/livereload.js"></script>
+  {{/if}}
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header col-md-12 col-md-offset-1">
+        <a class="navbar-brand" href="#">{{ site.title }}</a>
+
+        {{#if logged_in}}
+        <div class="pull-right" id="test-button">
+          <a class="btn btn-warning">Test Welfare Call</a>
+        </div>
+        {{/if}}
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 main">
+        {{{ body }}}
+      </div>
+    </div>
+  </div>
+
+  <script>
+    //customer = JSON.parse('{{{ session.customer }}}');
+  </script>
+
+  <script src="/js/vendors.js"></script>
+  <script src="/js/templates.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<form class="form-horizontal" id="checkout" method="post" action="/sign_up/checkout">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Sign Up to @Risk</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="first">First Name</label>
+  <div class="col-md-4">
+  <input id="first" name="first" type="text" placeholder="Jim" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="last">Last Name</label>
+  <div class="col-md-4">
+  <input id="last" name="last" type="text" placeholder="Smith" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="homephome">Home Phone</label>
+  <div class="col-md-4">
+  <input id="homephome" name="home_phome" type="text" placeholder="e.g. 01225 12345" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="emergency_number">Emergency Number</label>
+  <div class="col-md-4">
+  <input id="emergency_number" name="emergency_number" type="text" placeholder="e.g. 07845 12345" class="form-control input-md">
+
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-md-4 col-md-offset-4">
+    <div id="dropin"></div>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <input type="submit"  class="btn btn-primary" value="Sign Up for $15 per Month" />
+  </div>
+</div>
+
+
+</fieldset>
+</form>
+
+<script>
+  clientToken = "{{{ clientToken }}}";
+</script>

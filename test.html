@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>At Risk Alert</title>
+    <script type="text/javascript" src="http://static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      Twilio.Device.setup('eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJleHAiOiAxNDMwMDM3MjQyLCAic2NvcGUiOiAic2NvcGU6Y2xpZW50OmluY29taW5nP2NsaWVudE5hbWU9bXVtIiwgImlzcyI6ICJBQzdjNThlZTQ0YmE1NzQ1ZDA5NDJkZGJlMDIzOGNmN2YyIn0.0pX8teaE0uli9HBc-m2-c90l5Q-RYFDfi82I6Rnu2hQ');
+      setup()
+
+      $('#hangup_button').hide();
+
+      function setup() {
+          Twilio.Device.ready(function (device) {
+            console.log("Ready");
+
+            $("#status").text("Waiting for Call");
+            $('#hangup_button').fadeOut();
+          });
+
+          Twilio.Device.error(function (error) {
+            console.warn("Error: " + error.message);
+          });
+
+          Twilio.Device.connect(function (conn) {
+            console.log("Successfully established call");
+          });
+
+          Twilio.Device.disconnect(function (conn) {
+            console.log("Call ended");
+          });
+
+          Twilio.Device.incoming(function (conn) {
+            $("#log").text("Incoming connection from " + conn.parameters.From);
+
+
+
+            document.getElementById('alert').play();
+            conn.accept();
+
+            $("#status").text("Incomming Call");
+            $('#hangup_button').fadeIn();
+          });
+      }
+                  var backgroundInterval = setInterval(function(){
+              $("#phone").toggleClass("backgroundRed");
+            },100)
+
+      function hangup() {
+        Twilio.Device.disconnectAll();
+        $("#status").text("Waiting for Call");
+      }
+    </script>
+
+    <style>
+    .container {
+      width: 600px;
+    }
+
+    .backgroundRed{
+      background: red;
+    }
+
+    #phone {
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition:    all 0.5s ease-in-out;
+        -ms-transition:     all 0.5s ease-in-out;
+        transition:         all 0.5s ease-in-out;
+    }
+
+    </style>
+  </head>
+  <body>
+
+    <audio id="alert" src="/static/siren.mp3"></audio>
+
+    <div class="container">
+      <div class="header clearfix">
+        <h3 class="text-muted">@Risk</h3>
+      </div>
+
+      <div class="jumbotron" id="phone">
+        <h1 id="status">Waiting for Call</h1>
+        <p class="lead">No warnings just yet, all is well.</p>
+        <p><a id="hangup_button" class="btn btn-lg btn-success" style="display:none" onclick="hangup()" href="#" role="button">End Call</a></p>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Risk 2015</p>
+      </footer>
+
+    </div>
+  </body>
+</html>

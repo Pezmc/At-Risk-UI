@@ -1,0 +1,114 @@
+@import "../bower_components/bootstrap/less/bootstrap.less";
+
+//@import "../../bower_components/font-awesome/less/font-awesome.less";
+//@fa-font-path: "../fonts/font-awesome";
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+#navbar .form-control {
+  margin: 0;
+}
+
+.navbar-brand {
+  font-size: 40px;
+}
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+#test-button {
+  margin-top: 7px;
+}
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.large-font {
+  font-size: 30px
+}
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.device {
+  margin-bottom: 20px;
+
+  .text-muted {
+    height: 34px;
+  }
+
+  .device-status {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    background-color: #428bca;
+    color: white;
+    display: table;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 20px;
+
+    .message {
+      display: table-cell;
+      vertical-align: middle;
+
+      .time {
+        font-size: 30px;
+      }
+    }
+  }
+}

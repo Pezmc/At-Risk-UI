@@ -1,0 +1,25 @@
+<h1 class="page-header">Dashboard{{#if hasCustomer}} - {{ customer.firstName }} {{ customer.lastName }}{{/if}}</h1>
+{{#if just_signed_up}}
+<div class="alert alert-success" role="alert">
+    <strong>Success!</strong> Great, thanks for signing up. Here's your dashboard.
+</div>
+{{/if}}
+<div id="device-events" class="row placeholders"></div>
+
+<h2 class="sub-header">All Events</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Device</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody id="event-list">
+    </tbody>
+  </table>
+</div>
+
+<script>
+  previousEvents = {{{ history }}}
+</script>

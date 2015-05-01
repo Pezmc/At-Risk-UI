@@ -1,0 +1,24 @@
+<div class="device-status img-responsive">
+  <div class="message">
+    {{#if hasLastEvent }}
+    Last {{ verb }} at
+    <div class="time">
+      {{ lastEventTimeString }}
+    </div>
+    <div class="date">
+      {{ lastEventDateString}}
+    </div>
+    {{else}}
+      No events just yet!
+    {{/if}}
+  </div>
+</div>
+<h4>{{ name }}</h4>
+<div class="text-muted">
+  {{#if hasLastEvent }}
+    Last interaction
+   <time class="time-since" datetime="{{ lastEventTimeISO }}">{{ lastEventTimeString }}</time>
+  {{else}}
+    No interactions just yet!
+  {{/if}}
+</div>

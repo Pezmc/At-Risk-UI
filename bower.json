@@ -1,0 +1,20 @@
+{
+  "name": "atriskwatcher",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "jquery": "~2.1.3",
+    "underscore": "~1.8.3",
+    "holderjs": "~2.6.0",
+    "pusher": "~2.2.4",
+    "backbone": "~1.1.2",
+    "handlebars": "~3.0.2",
+    "timeago": "~1.4.1",
+    "braintree-web": "~2.7.2"
+  }
+}
